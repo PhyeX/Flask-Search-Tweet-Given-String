@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Web UI</title>
+         <style>
+    .styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+    .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+    </style>
+    </head>
+
+    <body>
+
+<!-- #Every relevant information about tweets should be visible, such as author, date, tweet contents, number of likes, number of retweets and number of discussions.-->
+
+   <table class="styled-table">
+   <thead>
+   <tr>
+   <th>Author</th>
+   <th>Date</th>
+   <th>Content</th>
+   <th>Likes</th>
+   <th>Retweets</th>
+   <th>Discussions</th>
+   </tr>
+   </thead>
+   <tbody>
+    {% for tweet in tweets() %}
+        <tr>
+             <td> {{ tweet.author }} </td>
+             <td> {{ tweet.date }} </td>
+             <td> {{ tweet.content }} </td>
+             <td> {{ tweet.numberOfLikes }} </td>
+             <td> {{ tweet.numberOfRetweets }} </td>
+             <td> {{ tweet.numberOfDiscussions }} </td>
+        </tr>
+    {% endfor %}
+   </tbody>
+   </table>
+
+    </body>
+</html>
